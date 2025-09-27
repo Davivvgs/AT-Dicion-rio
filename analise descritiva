@@ -1,0 +1,56 @@
+# Primeiras linhas
+df.head()
+# Últimas linhas
+df.tail()
+
+# Dimensão do dataset
+df.shape  # (linhas, colunas)
+# Tipos de dados
+df.dtypes
+# Info geral (tipos, valores nulos)
+df.info()
+
+
+#Números nulos
+df.isnull().sum() #Consultando
+df = df.dropna() #Excluindo
+
+
+
+#selecionando colunas
+df_novo = df[["coluna1", "coluna2", "coluna3"]]
+#todas as colunas menos algumas
+df_novo = df.drop(columns=["coluna_que_quero_excluir"])
+
+
+#Verificando dados em uma coluna
+df["coluna"].value_counts() #Mostra valor + Quantidade
+df["coluna"].unique()  #Valores unicos deessa coluna
+df["coluna"].nunique() #Números de valores unicos
+df.describe() # Resumo estatístico (média, desvio padrão, quartis)
+
+
+
+df_novo = df[df["coluna"] == "SP"][["nome", "idade"]]
+df_novo = df[(df["coluna"] == "valor") & (df["coluna"] > valor)]
+df = df[
+    (df["coluna"] == "valor") & 
+    (df["coluna"] == "valor") & 
+    (df["coluna"] == 1)]
+
+
+# Ordenar pelo nome de A → Z
+df_ordenado = df.sort_values(by="coluna_texto", ascending=True)
+# Ordenar de Z → A
+df_ordenado = df.sort_values(by="coluna_texto", ascending=False)
+#Ordenar mais de uma coluna
+df_ordenado = df.sort_values(by=["coluna1", "coluna2"], ascending=[True, False])
+
+
+#Arredondar todo o df
+df = df.round(2)
+# Arredonda para 2 casas decimais
+df["coluna"] = df["coluna"].round(2)
+#Arredondar para o Número Inteiro Mais Próximo
+df["coluna"] = df["coluna"].round(0)
+
